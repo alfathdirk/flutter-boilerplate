@@ -29,6 +29,10 @@
 .pub/
 /build/
 
+**/*.g.dart
+**/*.inject.dart
+**/*.inject.summary
+
 # Android related
 **/android/**/gradle-wrapper.jar
 **/android/.gradle

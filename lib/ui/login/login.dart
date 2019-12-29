@@ -352,9 +352,9 @@ class _LoginScreenState extends State<LoginScreen> {
         onPressed: () async {
           // print('asd');
           // if (_store.canLogin) {
-            _store.login();
+            return _store.login();
           // } else {
-            // showErrorMessage(context, 'Please fill in all fields');
+          //   showErrorMessage(context, 'Please fill in all fields');
           // }
         },
       ),
@@ -383,14 +383,13 @@ class _LoginScreenState extends State<LoginScreen> {
   // General Methods:-----------------------------------------------------------
   showErrorMessage(BuildContext context, String message) {
     if(message != null) {
-      FlushbarHelper.createError(
+      return FlushbarHelper.createError(
         message: message,
         title: 'Error',
         duration: Duration(seconds: 3),
       )
         ..show(context);
     }
-
     return Container();
   }
 

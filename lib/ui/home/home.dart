@@ -10,6 +10,7 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:kalaapp/ui/home/tabFriend/friend.dart';
+import 'package:kalaapp/ui/home/tabActivity/activity.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -24,6 +25,7 @@ class _HomeScreenState extends State<HomeScreen> {
   List<Widget> bodyWidget = <Widget>[
     TabFriend(),
     Text('2'),
+    Activity(),
     Text('3'),
     Text('4'),
   ];

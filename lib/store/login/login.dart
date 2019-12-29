@@ -14,10 +14,8 @@ class FormLoginStore = _FormLoginStore with _$FormLoginStore;
 abstract class _FormLoginStore with Store {
 
   Repository _repository = appComponent.getRepository();
-  // store for handling form errors
-  final FormErrorStore formErrorStore = FormErrorStore();
 
-  // store for handling error messages
+  final FormErrorStore formErrorStore = FormErrorStore();
   final ErrorLoginStore errorStore = ErrorLoginStore();
 
   _FormLoginStore() {
@@ -127,15 +125,13 @@ abstract class _FormLoginStore with Store {
     loading = true;
     _repository.postLogin('/auth/login', data: {"username": "alfathdirk", "password": "password"}).then((onValue) {
       loading = false;
-      this.dataList = onValue;
+      dataList = onValue;
       success = true;
     }).catchError((e) {
       loading = false;
       success = false;
       errorStore.showError = true;
-      errorStore.errorMessage = e.toString().contains("ERROR_USER_NOT_FOUND")
-          ? "Username and password doesn't match"
-          : "Something went wrong, please check your internet connection and try again";
+      errorStore.errorMessage ="Something went wrong, please check your internet connection and try again";
       print(e);
     });
     // Future.delayed(Duration(milliseconds: 1000)).then((future) {
@@ -149,7 +145,6 @@ abstract class _FormLoginStore with Store {
   @action
   Future getToken() async {
     String token = await _repository.getDataToken();
-    print(token);
     return token;
   }
 

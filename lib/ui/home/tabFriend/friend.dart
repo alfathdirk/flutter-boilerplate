@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kalaapp/router.dart';
 import 'package:kalaapp/ui/profile/profile.dart';
 
 
@@ -31,10 +32,12 @@ class _TabFriendState extends State<TabFriend> {
             Container(
               child: GestureDetector(
                 onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => Profile()),
-                  );
+                  Navigator.of(context).pushNamed(Routes.profile);
+
+                  // Navigator.push(
+                  //   context,
+                  //   MaterialPageRoute(builder: (context) => Profile()),
+                  // );
                 },
                 child: Row(
                   children: <Widget>[

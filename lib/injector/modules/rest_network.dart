@@ -9,9 +9,6 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 @module
 class NetworkModule {
-  /// A singleton dio provider.
-  ///
-  /// Calling it multiple times will return the same instance.
   @provide
   @singleton
   Dio provideDio() => Dio()
@@ -19,12 +16,9 @@ class NetworkModule {
     ..options.connectTimeout = 5000
     ..options.receiveTimeout = 3000
     ..options.headers = {'Content-Type': 'application/json; charset=utf-8'}
-    ..interceptors.add(LogInterceptor(responseBody: true))
+    // ..interceptors.add(LogInterceptor(responseBody: true))
     ..interceptors.add(InterceptorsWrapper(onRequest: (Options options) async {
-      // getting shared pref instance
       var prefs = await SharedPreferences.getInstance();
-
-      // getting token
       String token = prefs.getString(Constants.auth_token);
       if (token != null) {
         options.headers.putIfAbsent('Authorization', () => token);
@@ -33,9 +27,6 @@ class NetworkModule {
       }
     }));
 
-  /// A singleton dio_client provider.
-  ///
-  /// Calling it multiple times will return the same instance.
   @provide
   @singleton
   DioClient provideDioClient() => DioClient(provideDio());
@@ -46,9 +37,6 @@ class NetworkModule {
   Future<SharedPreferences> provideSharedPreferences() async =>
       await SharedPreferences.getInstance();
 
-  /// A singleton preference helper provider.
-  ///
-  /// Calling it multiple times will return the same instance.
   @provide
   @singleton
   SharedPreferenceHelper provideSharedPreferenceHelper() =>
@@ -58,15 +46,5 @@ class NetworkModule {
   @singleton
   Repository provideRepository() =>
       Repository(provideDioClient(), provideSharedPreferenceHelper());
-
-  // Api Providers:-------------------------------------------------------------
-  // Define all your api providers here
-  /// A singleton post_api provider.
-  ///
-  /// Calling it multiple times will return the same instance.
-  // @provide
-  // @singleton
-  // PostApi providePostApi() => PostApi(provideDioClient(), provideRestClient());
-  // Api Providers End:---------------------------------------------------------
 
 }

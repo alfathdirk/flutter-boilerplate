@@ -18,6 +18,7 @@ class _AbsenInOutState extends State<AbsenInOut> {
   @override
   void initState() {
     super.initState();
+    print(_store.getAbsen());
   }
 
   Widget _buildAppBar(BuildContext context) {

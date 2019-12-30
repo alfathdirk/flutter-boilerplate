@@ -44,7 +44,7 @@ class _AbsensiState extends State<Absensi> {
 
   void selectItem(BuildContext context, value) {
     _store.setTitle(typeAbsen[value]);
-    Navigator.of(context).pushNamed(Routes.inOutAbsen, arguments: typeAbsen[value]);
+    Navigator.of(context).pushNamed(Routes.inOutAbsen);
   }
 
   void _showModalInOutAbsen(BuildContext context) {
@@ -56,6 +56,7 @@ class _AbsensiState extends State<Absensi> {
     setState(() {
       selectedName = itemMasuk[idx];
     });
+    _store.setAbsen({ 'item': itemMasuk[idx], 'key2':'value2' });
     Navigator.of(context).pop();
     _showModalInOutAbsen(context);
   }

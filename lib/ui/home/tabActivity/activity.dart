@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kalaapp/router.dart';
 import 'package:kalaapp/ui/absensi/absensi.dart';
 
 class Activity extends StatefulWidget {
@@ -8,10 +9,15 @@ class Activity extends StatefulWidget {
 
 class _ActivityState extends State<Activity> {
   // AbsensiStoreState _store = Constants.s();
+
   @override
   void initState() {
     super.initState();
     // startTimer();
+  }
+
+  void navigate(routes) {
+    Navigator.of(context).pushNamed(routes);
   }
 
   @override
@@ -46,10 +52,7 @@ class _ActivityState extends State<Activity> {
               ),
               GestureDetector(
                 onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => Absensi()),
-                  );
+                  navigate(Routes.absensi);
                 },
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -69,7 +72,7 @@ class _ActivityState extends State<Activity> {
               ),
               GestureDetector(
                 onTap: () {
-
+                  navigate(Routes.taskAbsensi);
                 },
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,

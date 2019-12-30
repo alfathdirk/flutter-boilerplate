@@ -12,4 +12,11 @@ class AbsensiStoreState {
   setTitle(String title) {
     _absensiStore.setTitle(title);
   }
+
+  setAbsen(Map title) {
+    _absensiStore.setAbsen(title);
+  }
+
+  getAbsen() => _absensiStore.absenOption;
+  
 }

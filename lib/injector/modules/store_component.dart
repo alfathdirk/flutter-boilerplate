@@ -6,6 +6,4 @@ class StoreComponents {
   StoreComponents._();
   
   static final AbsensiStoreState absensiState = appComponent.getAbsensiStore();
-
-  // static const String baseUrl = "http://localhost:8888";
 }

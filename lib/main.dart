@@ -3,7 +3,6 @@ import 'package:inject/inject.dart';
 import 'package:kalaapp/injector/modules/state_store.dart';
 
 import './injector/components/app_component.dart';
-import './injector/modules/rest_network.dart';
 import 'constants/constant.dart';
 import './router.dart';
 import 'ui/splash/splash.dart';
@@ -11,7 +10,7 @@ import 'ui/splash/splash.dart';
 var appComponent;
 
 void main() async {
-  appComponent = await AppComponent.create(NetworkModule(), StateModule());
+  appComponent = await AppComponent.create(StateModule());
   runApp(appComponent.app);
 }
 

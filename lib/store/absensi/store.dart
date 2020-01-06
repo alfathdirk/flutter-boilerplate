@@ -18,5 +18,6 @@ class AbsensiStoreState {
   }
 
   getAbsen() => _absensiStore.absenOption;
+
   
 }

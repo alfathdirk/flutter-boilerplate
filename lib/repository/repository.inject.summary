@@ -1,8 +1,0 @@
-{
-  "asset": "asset:kalaapp/lib/repository/repository.dart",
-  "summary": {
-    "injector": [],
-    "module": [],
-    "injectable": []
-  }
-}

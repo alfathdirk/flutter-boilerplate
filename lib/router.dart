@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:kalaapp/ui/absensi/absensi.dart';
 import 'package:kalaapp/ui/profile/profile.dart';
 import 'package:kalaapp/ui/task_absensi/task_abensi.dart';
+import 'package:kalaapp/ui/working_plan/working_plan.dart';
 
 import 'ui/home/home.dart';
 import 'ui/login/login.dart';
@@ -20,6 +21,7 @@ class Routes {
   static const String absensi = '/absensi';
   static const String inOutAbsen = '/in_out_absen';
   static const String taskAbsensi = '/task_absensi';
+  static const String workingPlan = '/working_plan';
 
   static final routes = <String, WidgetBuilder>{
     splash: (BuildContext context) => SplashScreen(),
@@ -30,6 +32,7 @@ class Routes {
     absensi: (BuildContext context) => Absensi(),
     inOutAbsen: (BuildContext context) => AbsenInOut(),
     taskAbsensi: (BuildContext context) => TaskAbsensi(),
+    workingPlan: (BuildContext context) => WorkingPlan(),
   };
 }
 

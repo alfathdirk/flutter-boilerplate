@@ -56,9 +56,9 @@ class _AbsensiState extends State<Absensi> {
     setState(() {
       selectedName = itemMasuk[idx];
     });
-    _store.setAbsen({ 'item': itemMasuk[idx], 'key2':'value2' });
+    // _store.setAbsen({ 'item': itemMasuk[idx], 'key2':'value2' });
     Navigator.of(context).pop();
-    _showModalInOutAbsen(context);
+    // _showModalInOutAbsen(context);
   }
 
   void _showModalAbsen(BuildContext context) {
@@ -162,7 +162,9 @@ class _AbsensiState extends State<Absensi> {
               child: Align(
                 alignment: Alignment.bottomCenter,
                 child: GestureDetector(
-                  onTap: () {},
+                  onTap: () {
+                    _showModalInOutAbsen(context);
+                  },
                   child: Container(
                     width: MediaQuery.of(context).size.width,
                     padding: EdgeInsets.all(12.0),

@@ -1,38 +1,35 @@
 import 'app_component.dart' as _i1;
-import '../modules/rest_network.dart' as _i2;
-import '../../repository/repository.dart' as _i3;
-import '../modules/state_store.dart' as _i4;
-import '../../store/absensi/store.dart' as _i5;
-import 'dart:async' as _i6;
-import '../../main.dart' as _i7;
+import '../modules/state_store.dart' as _i2;
+import '../../store/login/store.dart' as _i3;
+import '../../store/absensi/store.dart' as _i4;
+import 'dart:async' as _i5;
+import '../../main.dart' as _i6;
 
 class AppComponent$Injector implements _i1.AppComponent {
-  AppComponent$Injector._(this._networkModule, this._stateModule);
+  AppComponent$Injector._(this._stateModule);
 
-  final _i2.NetworkModule _networkModule;
+  final _i2.StateModule _stateModule;
 
-  _i3.Repository _singletonRepository;
+  _i3.LoginStoreState _singletonLoginStoreState;
 
-  final _i4.StateModule _stateModule;
+  _i4.AbsensiStoreState _singletonAbsensiStoreState;
 
-  _i5.AbsensiStoreState _singletonAbsensiStoreState;
-
-  static _i6.Future<_i1.AppComponent> create(
-      _i2.NetworkModule networkModule, _i4.StateModule stateModule) async {
-    final injector = AppComponent$Injector._(networkModule, stateModule);
+  static _i5.Future<_i1.AppComponent> create(
+      _i2.StateModule stateModule) async {
+    final injector = AppComponent$Injector._(stateModule);
 
     return injector;
   }
 
-  _i7.MyApp _createMyApp() => _i7.MyApp();
-  _i3.Repository _createRepository() =>
-      _singletonRepository ??= _networkModule.provideRepository();
-  _i5.AbsensiStoreState _createAbsensiStoreState() =>
+  _i6.MyApp _createMyApp() => _i6.MyApp();
+  _i3.LoginStoreState _createLoginStoreState() =>
+      _singletonLoginStoreState ??= _stateModule.provideRepository();
+  _i4.AbsensiStoreState _createAbsensiStoreState() =>
       _singletonAbsensiStoreState ??= _stateModule.provideStoreState();
   @override
-  _i7.MyApp get app => _createMyApp();
+  _i6.MyApp get app => _createMyApp();
   @override
-  _i3.Repository getRepository() => _createRepository();
+  _i3.LoginStoreState getLoginStore() => _createLoginStoreState();
   @override
-  _i5.AbsensiStoreState getAbsensiStore() => _createAbsensiStoreState();
+  _i4.AbsensiStoreState getAbsensiStore() => _createAbsensiStoreState();
 }

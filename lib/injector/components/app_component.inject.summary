@@ -20,11 +20,11 @@
             "dependencies": []
           },
           {
-            "name": "getRepository",
+            "name": "getLoginStore",
             "kind": "method",
             "injectedType": {
               "lookupKey": {
-                "root": "asset:kalaapp/lib/repository/repository.dart#Repository",
+                "root": "asset:kalaapp/lib/store/login/store.dart#LoginStoreState",
                 "qualifier": null
               },
               "isProvider": false
@@ -49,7 +49,6 @@
           }
         ],
         "modules": [
-          "asset:kalaapp/lib/injector/modules/rest_network.dart#NetworkModule",
           "asset:kalaapp/lib/injector/modules/state_store.dart#StateModule"
         ]
       }

@@ -5,12 +5,12 @@ import 'package:kalaapp/store/login/model.dart';
 import 'package:kalaapp/helpers/shared_pref.dart';
 // import 'package:sembast/sembast.dart';
 
-class Repository {
+class LoginStoreState {
   // api objects
   final DioClient _dioClient;
   final SharedPreferenceHelper _sharedPrefsHelper;
 
-  Repository(this._dioClient, this._sharedPrefsHelper);
+  LoginStoreState(this._dioClient, this._sharedPrefsHelper);
 
 
   Future<PostLogin> postLogin(url,{ data }) async {

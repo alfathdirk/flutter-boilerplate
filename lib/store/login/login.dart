@@ -1,6 +1,6 @@
-import 'package:kalaapp/repository/repository.dart';
 import 'package:kalaapp/main.dart';
 import 'package:kalaapp/store/login/model.dart';
+import 'package:kalaapp/store/login/store.dart';
 
 
 import './error.dart';
@@ -13,7 +13,7 @@ class FormLoginStore = _FormLoginStore with _$FormLoginStore;
 
 abstract class _FormLoginStore with Store {
 
-  Repository _repository = appComponent.getRepository();
+  LoginStoreState _repository = appComponent.getLoginStore();
 
   final FormErrorStore formErrorStore = FormErrorStore();
   final ErrorLoginStore errorStore = ErrorLoginStore();
